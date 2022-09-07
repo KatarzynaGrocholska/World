@@ -1,6 +1,20 @@
-package com.example.world2.model.entities.earth;
+package com.example.world2.model.entities.earth.liveMatter;
+
+import com.example.world2.model.entities.earth.GeolocationPosition;
 
 public abstract class LiveMatter {
+
+    public String getName() {
+        return name;
+    }
+
+    public double getLifetimeInDays() {
+        return lifetimeInDays;
+    }
+
+    public GeolocationPosition getCurrentPosition() {
+        return currentPosition;
+    }
 
     private String name;
     private double lifetimeInDays;

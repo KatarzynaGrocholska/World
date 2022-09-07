@@ -1,4 +1,6 @@
-package com.example.world2.model.entities.earth;
+package com.example.world2.model.entities.earth.liveMatter;
+
+import com.example.world2.model.entities.earth.GeolocationPosition;
 
 public abstract class Funghi extends LiveMatter {
 
