@@ -24,8 +24,13 @@ public abstract class Animal extends LiveMatter implements Moveable {
 
     private boolean isMakingNoise;
 
-    public Animal(String name, double lifetimeInDays, GeolocationPosition currentPosition) {
-        super(name, lifetimeInDays, currentPosition);
+    public Animal(String name, double lifetimeInDays, GeolocationPosition currentPosition,
+                  Earth earth, double weight, double age, double size, boolean warmBlooded, FoodType foodType, SkinType skinType, boolean isMakingNoise) {
+        super(name, lifetimeInDays, currentPosition, earth, weight, age, size);
+        this.warmBlooded = warmBlooded;
+        this.foodType = foodType;
+        this.skinType = skinType;
+        this.isMakingNoise = isMakingNoise;
     }
 
     public boolean isWarmBlooded() {
@@ -52,10 +57,12 @@ public abstract class Animal extends LiveMatter implements Moveable {
         this.skinType = skinType;
     }
 
+    public TerrainType identifyTerrainType(GeolocationPosition geolocationPosition) {
 
-    public TerrainType identifyTerrainType(GeolocationPosition position){
-
-        return
+        return super.getEarth().getFieldTerrainType(geolocationPosition);
     }
+
+    public abstract boolean checkIfWalk(GeolocationPosition newGeolocationPosition);
+    public abstract boolean checkIfJump(GeolocationPosition newGeolocationPosition);
 
 }

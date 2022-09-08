@@ -1,5 +1,6 @@
-package com.example.world2.model.abstracts;
+package com.example.world2.model.entities;
 
+import com.example.world2.model.entities.earth.GeolocationPosition;
 import com.example.world2.model.enums.TerrainType;
 
 public abstract class Planet {
@@ -8,11 +9,11 @@ public abstract class Planet {
     private long distanceFromSunInKKm;
     private double rotationAroundSunTimeInHours;
     private double selfRotationTimeInHours;
-    private TerrainType[][][] map;
+    private Field[][][] map;
 
 
     public Planet(String name, double radiusInKKm, long distanceFromSunInKKm, double rotationAroundSunTimeInHours,
-                  double selfRotationTimeInHours, TerrainType[][][] map) {
+                  double selfRotationTimeInHours, Field[][][] map) {
         this.name = name;
         this.radiusInKKm = radiusInKKm;
         this.distanceFromSunInKKm = distanceFromSunInKKm;
@@ -41,7 +42,15 @@ public abstract class Planet {
         return selfRotationTimeInHours;
     }
 
-    public TerrainType[][][] getMap() {
+    public Field[][][] getMap() {
         return map;
     }
+
+    public TerrainType getFieldTerrainType(GeolocationPosition geolocationPosition) {
+
+        return map[geolocationPosition.getX()][geolocationPosition.getY()][geolocationPosition.getZ()].getTerrainType();
+
+    }
+
+
 }

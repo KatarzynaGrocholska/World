@@ -6,4 +6,6 @@ public abstract class Plant extends LiveMatter {
     public Plant(String name, double lifetimeInDays, GeolocationPosition currentPosition) {
         super(name, lifetimeInDays, currentPosition);
     }
+
+
 }
