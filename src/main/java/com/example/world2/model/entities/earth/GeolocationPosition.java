@@ -6,6 +6,12 @@ public class GeolocationPosition {
     private int y;
     private int z;
 
+    public GeolocationPosition(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     public int getX() {
         return x;
     }

@@ -12,6 +12,8 @@ public abstract class Felid extends FourLegsOwner implements Jumpable, Climbable
         super(name, lifetimeInDays, currentPosition);
     }
 
+
+
     @Override
     public void move(GeolocationPosition newGeolocationPosition) {
 
