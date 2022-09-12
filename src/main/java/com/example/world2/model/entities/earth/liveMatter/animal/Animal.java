@@ -14,6 +14,11 @@ public abstract class Animal extends LiveMatter implements Moveable {
     private FoodType foodType;
     private SkinType skinType;
 
+    public Animal(String name, double lifetimeInDays, GeolocationPosition currentPosition, Earth earth, double weight, double age, double size, boolean warmBlooded) {
+        super(name, lifetimeInDays, currentPosition, earth, weight, age, size);
+        this.warmBlooded = warmBlooded;
+    }
+
     public boolean isMakingNoise() {
         return isMakingNoise;
     }
