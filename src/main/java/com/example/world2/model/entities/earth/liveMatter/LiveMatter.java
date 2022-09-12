@@ -13,9 +13,7 @@ public abstract class LiveMatter {
     private double age;
     private double size;
 
-    public LiveMatter() {
 
-    }
 
 
     public String getName() {
