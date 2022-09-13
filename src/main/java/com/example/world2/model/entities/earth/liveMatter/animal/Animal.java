@@ -10,13 +10,23 @@ import com.example.world2.model.interfaces.Moveable;
 
 public abstract class Animal extends LiveMatter implements Moveable {
 
-    private boolean warmBlooded ;
+
+    private final double jumpToBodySizeRatio;
+    private boolean warmBlooded;
     private FoodType foodType;
     private SkinType skinType;
 
-    public Animal(String name, double lifetimeInDays, GeolocationPosition currentPosition, Earth earth, double weight, double age, double size, boolean warmBlooded) {
-        super(name, lifetimeInDays, currentPosition, earth, weight, age, size);
+
+    public Animal(String name, double lifetimeInSeconds, GeolocationPosition currentPosition,
+                  Earth earth, double weight, double age, double size, boolean warmBlooded,
+             FoodType foodType, SkinType skinType, boolean isMakingNoise,
+                  double jumpToBodySizeRatio) {
+        super(name, lifetimeInSeconds, currentPosition, earth, weight, age, size);
         this.warmBlooded = warmBlooded;
+        this.foodType = foodType;
+        this.skinType = skinType;
+        this.isMakingNoise = isMakingNoise;
+        this.jumpToBodySizeRatio = jumpToBodySizeRatio;
     }
 
     public boolean isMakingNoise() {
@@ -28,15 +38,6 @@ public abstract class Animal extends LiveMatter implements Moveable {
     }
 
     private boolean isMakingNoise;
-
-    public Animal(String name, double lifetimeInDays, GeolocationPosition currentPosition,
-                  Earth earth, double weight, double age, double size, boolean warmBlooded, FoodType foodType, SkinType skinType, boolean isMakingNoise) {
-        super(name, lifetimeInDays, currentPosition, earth, weight, age, size);
-        this.warmBlooded = warmBlooded;
-        this.foodType = foodType;
-        this.skinType = skinType;
-        this.isMakingNoise = isMakingNoise;
-    }
 
     public boolean isWarmBlooded() {
         return warmBlooded;
@@ -66,8 +67,13 @@ public abstract class Animal extends LiveMatter implements Moveable {
 
         return super.getEarth().getFieldTerrainType(geolocationPosition);
     }
+    public double getJumpToBodySizeRatio() {
+        return jumpToBodySizeRatio;
+    }
+
 
     public abstract boolean checkIfWalk(GeolocationPosition newGeolocationPosition);
+
     public abstract boolean checkIfJump(GeolocationPosition newGeolocationPosition);
 
 }

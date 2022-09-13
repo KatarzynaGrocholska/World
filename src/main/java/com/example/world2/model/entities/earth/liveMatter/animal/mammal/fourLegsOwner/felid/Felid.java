@@ -3,15 +3,17 @@ package com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLeg
 import com.example.world2.model.entities.earth.Earth;
 import com.example.world2.model.entities.earth.GeolocationPosition;
 import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.FourLegsOwner;
+import com.example.world2.model.enums.FoodType;
+import com.example.world2.model.enums.SkinType;
 import com.example.world2.model.interfaces.Climbable;
-import com.example.world2.model.interfaces.Jumpable;
 import com.example.world2.model.interfaces.Swimable;
 
-public abstract class Felid extends FourLegsOwner implements Jumpable, Climbable, Swimable {
+public abstract class Felid extends FourLegsOwner implements Climbable {
 
 
-    public Felid(String name, double lifetimeInDays, GeolocationPosition currentPosition, Earth earth, double weight, double age, double size, boolean warmBlooded) {
-        super(name, lifetimeInDays, currentPosition, earth, weight, age, size, warmBlooded);
+    public Felid(String name, double lifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, FoodType foodType, SkinType skinType, boolean isMakingNoise, double weight,
+                 double age, double size, boolean warmBlooded, double jumpToBodySizeRatio) {
+        super(name, lifetimeInSeconds, currentPosition, earth, foodType, skinType, isMakingNoise, weight, age, size, warmBlooded, jumpToBodySizeRatio);
     }
 
     @Override
@@ -38,16 +40,6 @@ public abstract class Felid extends FourLegsOwner implements Jumpable, Climbable
                 break;
         }
 
-/*
-        if(TerrainType.SALTY_WATER)
-        if(getCurrentPosition().getZ()!= newGeolocationPosition.getZ()){
-            climb();
-            jump();
-        }else{
-            walk();
-            jump();
-            swim();
-        }*/
 
     }
 
@@ -59,7 +51,8 @@ public abstract class Felid extends FourLegsOwner implements Jumpable, Climbable
 
     @Override
     public boolean checkIfJump(GeolocationPosition newGeolocationPosition) {
-        return (newGeolocationPosition.getZ() - getCurrentPosition().getZ()) <= 7 * getSize();// koty skaczą do siedmiokrotności swojego wzrostu
+        return (newGeolocationPosition.getZ() - getCurrentPosition().getZ()) <=
+                getJumpToBodySizeRatio() * getSizeInMillimeters();
     }
 
     @Override

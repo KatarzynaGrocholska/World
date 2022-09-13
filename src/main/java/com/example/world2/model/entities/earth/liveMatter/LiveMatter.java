@@ -6,15 +6,23 @@ import com.example.world2.model.entities.earth.GeolocationPosition;
 public abstract class LiveMatter {
 
     private String name;
-    private double lifetimeInDays;
+    private double lifetimeInSeconds;
     private GeolocationPosition currentPosition;
     private Earth earth;
-    private double weight;
-    private double age;
-    private double size;
+    private double weightInGrams;
+    private double ageInSeconds;
+    private double sizeInMillimeters;
 
-
-
+    public LiveMatter(String name, double lifetimeInSeconds, GeolocationPosition currentPosition,
+                      Earth earth, double weightInGrams, double ageInMonths, double sizeInMillimeters) {
+        this.name = name;
+        this.lifetimeInSeconds = lifetimeInSeconds;
+        this.currentPosition = currentPosition;
+        this.earth = earth;
+        this.weightInGrams = weightInGrams;
+        this.ageInSeconds = ageInMonths;
+        this.sizeInMillimeters = sizeInMillimeters;
+    }
 
     public String getName() {
         return name;
@@ -24,12 +32,12 @@ public abstract class LiveMatter {
         this.name = name;
     }
 
-    public double getLifetimeInDays() {
-        return lifetimeInDays;
+    public double getLifetimeInSeconds() {
+        return lifetimeInSeconds;
     }
 
-    public void setLifetimeInDays(double lifetimeInDays) {
-        this.lifetimeInDays = lifetimeInDays;
+    public void setLifetimeInSeconds(double lifetimeInSeconds) {
+        this.lifetimeInSeconds = lifetimeInSeconds;
     }
 
     public GeolocationPosition getCurrentPosition() {
@@ -48,40 +56,31 @@ public abstract class LiveMatter {
         this.earth = earth;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getWeightInGrams() {
+        return weightInGrams;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setWeightInGrams(double weightInGrams) {
+        this.weightInGrams = weightInGrams;
     }
 
-    public double getAge() {
-        return age;
+    public double getAgeInMonths() {
+        return ageInSeconds;
     }
 
-    public void setAge(double age) {
-        this.age = age;
+    public void setAgeInMonths(double ageInMonths) {
+        this.ageInSeconds = ageInMonths;
     }
 
-    public double getSize() {
-        return size;
+    public double getSizeInMillimeters() {
+        return sizeInMillimeters;
     }
 
-    public void setSize(double size) {
-        this.size = size;
+    public void setSizeInMillimeters(double sizeInMillimeters) {
+        this.sizeInMillimeters = sizeInMillimeters;
     }
 
-    public LiveMatter(String name, double lifetimeInDays, GeolocationPosition currentPosition,
-                      Earth earth, double weight, double age, double size) {
-        this.name = name;
-        this.lifetimeInDays = lifetimeInDays;
-        this.currentPosition = currentPosition;
-        this.earth = earth;
-        this.weight = weight;
-        this.age = age;
-        this.size = size;
-    }
+
 
 
 
