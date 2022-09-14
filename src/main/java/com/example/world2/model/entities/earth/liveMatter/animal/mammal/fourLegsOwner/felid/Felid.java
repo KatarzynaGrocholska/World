@@ -3,10 +3,10 @@ package com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLeg
 import com.example.world2.model.entities.earth.Earth;
 import com.example.world2.model.entities.earth.GeolocationPosition;
 import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.FourLegsOwner;
+import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.fourLegsOwnerFactory.FourLegsOwnerFactory;
 import com.example.world2.model.enums.FoodType;
 import com.example.world2.model.enums.SkinType;
 import com.example.world2.model.interfaces.Climbable;
-import com.example.world2.model.interfaces.Swimable;
 
 public abstract class Felid extends FourLegsOwner implements Climbable {
 

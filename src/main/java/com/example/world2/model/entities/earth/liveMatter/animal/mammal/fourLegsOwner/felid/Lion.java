@@ -2,7 +2,6 @@ package com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLeg
 
 import com.example.world2.model.entities.earth.Earth;
 import com.example.world2.model.entities.earth.GeolocationPosition;
-import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.felid.Felid;
 import com.example.world2.model.enums.FoodType;
 import com.example.world2.model.enums.SkinType;
 
@@ -24,4 +23,5 @@ public class Lion extends Felid {
     public void swim() {
 
     }
+
 }

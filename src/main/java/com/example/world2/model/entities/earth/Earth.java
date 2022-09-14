@@ -8,8 +8,14 @@ import com.example.world2.model.enums.TerrainType;
 public class Earth extends Planet {
 
 
-    public Earth(String name, double radiusInKKm, long distanceFromSunInKKm, double rotationAroundSunTimeInHours, double selfRotationTimeInHours, Field[][][] map) {
+    private Earth(String name, double radiusInKKm, long distanceFromSunInKKm, double rotationAroundSunTimeInHours, double selfRotationTimeInHours, Field[][][] map) {
         super(name, radiusInKKm, distanceFromSunInKKm, rotationAroundSunTimeInHours, selfRotationTimeInHours, map);
     }
 
+
+    static Earth earth = new Earth("Earth", 6378, 150480000, 8760, 24, EarthField.getEarthField());
+
+    public static Earth getInstance() {
+        return earth;
+    }
 }
