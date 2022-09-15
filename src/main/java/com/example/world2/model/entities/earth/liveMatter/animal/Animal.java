@@ -16,17 +16,15 @@ public abstract class Animal extends LiveMatter implements Moveable {
     private FoodType foodType;
     private SkinType skinType;
 
-
-    public Animal(String name, double lifetimeInSeconds, GeolocationPosition currentPosition,
-                  Earth earth, double weight, double age, double size, boolean warmBlooded,
-             FoodType foodType, SkinType skinType, boolean isMakingNoise,
-                  double jumpToBodySizeRatio) {
-        super(name, lifetimeInSeconds, currentPosition, earth, weight, age, size);
+    public Animal(String name, double lifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, double weightInGrams,
+                  double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio,
+                  boolean warmBlooded, FoodType foodType, SkinType skinType, boolean isMakingNoise) {
+        super(name, lifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters);
+        this.jumpToBodySizeRatio = jumpToBodySizeRatio;
         this.warmBlooded = warmBlooded;
         this.foodType = foodType;
         this.skinType = skinType;
         this.isMakingNoise = isMakingNoise;
-        this.jumpToBodySizeRatio = jumpToBodySizeRatio;
     }
 
     public boolean isMakingNoise() {

@@ -3,7 +3,6 @@ package com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLeg
 import com.example.world2.model.entities.earth.Earth;
 import com.example.world2.model.entities.earth.GeolocationPosition;
 import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.FourLegsOwner;
-import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.fourLegsOwnerFactory.FourLegsOwnerFactory;
 import com.example.world2.model.enums.FoodType;
 import com.example.world2.model.enums.SkinType;
 import com.example.world2.model.interfaces.Climbable;
@@ -11,9 +10,10 @@ import com.example.world2.model.interfaces.Climbable;
 public abstract class Felid extends FourLegsOwner implements Climbable {
 
 
-    public Felid(String name, double lifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, FoodType foodType, SkinType skinType, boolean isMakingNoise, double weight,
-                 double age, double size, boolean warmBlooded, double jumpToBodySizeRatio) {
-        super(name, lifetimeInSeconds, currentPosition, earth, foodType, skinType, isMakingNoise, weight, age, size, warmBlooded, jumpToBodySizeRatio);
+    public Felid(String name, double lifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
+                 double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio, boolean warmBlooded,
+                 FoodType foodType, SkinType skinType, boolean isMakingNoise) {
+        super(name, lifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio, warmBlooded, foodType, skinType, isMakingNoise);
     }
 
     @Override
@@ -52,7 +52,7 @@ public abstract class Felid extends FourLegsOwner implements Climbable {
     @Override
     public boolean checkIfJump(GeolocationPosition newGeolocationPosition) {
         return (newGeolocationPosition.getZ() - getCurrentPosition().getZ()) <=
-                getJumpToBodySizeRatio() * getSizeInMillimeters();
+                getJumpToBodySizeRatio() * getWidthInMillimeters();
     }
 
     @Override

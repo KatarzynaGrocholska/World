@@ -6,22 +6,25 @@ import com.example.world2.model.entities.earth.GeolocationPosition;
 public abstract class LiveMatter {
 
     private String name;
-    private double lifetimeInSeconds;
+    private double maxLifetimeInSeconds;
     private GeolocationPosition currentPosition;
     private Earth earth;
     private double weightInGrams;
     private double ageInSeconds;
-    private double sizeInMillimeters;
+    private double widthInMillimeters;
+    private double heightInMillimeters;
 
-    public LiveMatter(String name, double lifetimeInSeconds, GeolocationPosition currentPosition,
-                      Earth earth, double weightInGrams, double ageInMonths, double sizeInMillimeters) {
+    public LiveMatter(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition,
+                      Earth earth, double weightInGrams, double ageInSeconds, double widthInMillimeters,
+                      double heightInMillimeters) {
         this.name = name;
-        this.lifetimeInSeconds = lifetimeInSeconds;
+        this.maxLifetimeInSeconds = maxLifetimeInSeconds;
         this.currentPosition = currentPosition;
         this.earth = earth;
         this.weightInGrams = weightInGrams;
-        this.ageInSeconds = ageInMonths;
-        this.sizeInMillimeters = sizeInMillimeters;
+        this.ageInSeconds = ageInSeconds;
+        this.widthInMillimeters = widthInMillimeters;
+        this.heightInMillimeters = heightInMillimeters;
     }
 
     public String getName() {
@@ -32,12 +35,12 @@ public abstract class LiveMatter {
         this.name = name;
     }
 
-    public double getLifetimeInSeconds() {
-        return lifetimeInSeconds;
+    public double getMaxLifetimeInSeconds() {
+        return maxLifetimeInSeconds;
     }
 
-    public void setLifetimeInSeconds(double lifetimeInSeconds) {
-        this.lifetimeInSeconds = lifetimeInSeconds;
+    public void setMaxLifetimeInSeconds(double maxLifetimeInSeconds) {
+        this.maxLifetimeInSeconds = maxLifetimeInSeconds;
     }
 
     public GeolocationPosition getCurrentPosition() {
@@ -70,18 +73,22 @@ public abstract class LiveMatter {
 
     public void setAgeInMonths(double ageInMonths) {
         this.ageInSeconds = ageInMonths;
+    } //fixme tylko zwiększenie
+
+    public double getWidthInMillimeters() {
+        return widthInMillimeters;
     }
 
-    public double getSizeInMillimeters() {
-        return sizeInMillimeters;
+    public void setWidthInMillimeters(double widthInMillimeters) {
+        this.widthInMillimeters = widthInMillimeters;
     }
 
-    public void setSizeInMillimeters(double sizeInMillimeters) {
-        this.sizeInMillimeters = sizeInMillimeters;
+    public double getHeightInMillimeters() {
+        return heightInMillimeters;
     }
 
-
-
-
+    public void setHeightInMillimeters(double heightInMillimeters) {
+        this.heightInMillimeters = heightInMillimeters;
+    }
 
 }
