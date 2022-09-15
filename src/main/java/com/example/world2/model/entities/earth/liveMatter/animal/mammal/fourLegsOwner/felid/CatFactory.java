@@ -10,6 +10,8 @@ import java.util.Random;
 public class CatFactory implements FelidFactory {
 
     private static final String BASE_CAT_NAME = "Filemon";
+    private static final double JUMP_TO_BODY_SIZE_RATIO = 7.00;
+    private static final boolean WARM_BLOODED = true;
 
     Random generator = new Random();
 
@@ -21,12 +23,11 @@ public class CatFactory implements FelidFactory {
     }
 
     private Cat createRandomCat() {
-        GeolocationPosition geolocationPositionA = new GeolocationPosition(0, 0, 1);
         Earth earth =Earth.getInstance();
 
         return new Cat(getName(), getLifetimeInSeconds(), getGeolocationPosition(),
                 earth, FoodType.ALL_FEEDING, SkinType.FUR, true, 3000d,
-                31536000d, 5000d, true, 7d);
+                getAge(), getSize(), WARM_BLOODED, JUMP_TO_BODY_SIZE_RATIO);
 
     }
 
@@ -35,6 +36,13 @@ public class CatFactory implements FelidFactory {
         String result = BASE_CAT_NAME + counter;
         counter++;
         return result;
+    }
+
+    private double getSize(){
+        return generator.nextDouble(1000,5000);
+    }
+    private double getAge(){
+        return generator.nextDouble(50000000);
     }
 
     private GeolocationPosition getGeolocationPosition(){
