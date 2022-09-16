@@ -7,8 +7,9 @@ import com.example.world2.model.enums.FoodType;
 import com.example.world2.model.enums.SkinType;
 import com.example.world2.model.enums.TerrainType;
 import com.example.world2.model.interfaces.Moveable;
+import com.example.world2.model.interfaces.Stayable;
 
-public abstract class Animal extends LiveMatter implements Moveable {
+public abstract class Animal extends LiveMatter implements Moveable, Stayable {
 
 
     private final double jumpToBodySizeRatio;
@@ -65,13 +66,21 @@ public abstract class Animal extends LiveMatter implements Moveable {
 
         return super.getEarth().getFieldTerrainType(geolocationPosition);
     }
+
     public double getJumpToBodySizeRatio() {
         return jumpToBodySizeRatio;
     }
 
 
-    public abstract boolean checkIfWalk(GeolocationPosition newGeolocationPosition);
+    protected abstract boolean checkIfWalk(GeolocationPosition newGeolocationPosition);
 
-    public abstract boolean checkIfJump(GeolocationPosition newGeolocationPosition);
+    protected abstract boolean checkIfJump(GeolocationPosition newGeolocationPosition);
+
+    @Override
+    public void move(GeolocationPosition newGeolocationPosition) {
+
+        this.setCurrentPosition(newGeolocationPosition);
+    }
+
 
 }

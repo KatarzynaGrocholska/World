@@ -15,9 +15,13 @@ public class Cat extends Felid {
     }
 
     @Override
-    public void swim() {
-
+    public GeolocationPosition swim() {
+        return null;
     }
 
 
+    @Override
+    public GeolocationPosition stay() {
+        return null;
+    }
 }

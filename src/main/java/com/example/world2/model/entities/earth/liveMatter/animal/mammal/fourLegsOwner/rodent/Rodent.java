@@ -22,12 +22,12 @@ public abstract class Rodent extends FourLegsOwner {
     }
 
     @Override
-    public void jump() {
-
+    public GeolocationPosition jump() {
+return null;
     }
 
     @Override
-    public void swim() {
-
+    public GeolocationPosition swim() {
+        return null;
     }
 }

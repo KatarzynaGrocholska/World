@@ -20,8 +20,8 @@ public abstract class FourLegsOwner extends Mammal implements Walkable, Swimable
     }
 
     @Override
-    public void walk() {
-
+    public GeolocationPosition walk() {
+return null;
     }
 
 }

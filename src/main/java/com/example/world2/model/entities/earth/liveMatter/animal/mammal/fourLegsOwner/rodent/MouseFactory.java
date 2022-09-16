@@ -7,6 +7,7 @@ import com.example.world2.model.enums.SkinType;
 
 import java.util.Random;
 
+
 public class MouseFactory implements RodentFactory {
 
     private static final String BASE_MOUSE_NAME = "Jerry";

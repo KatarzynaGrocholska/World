@@ -14,6 +14,8 @@ public class LionFactory implements FelidFactory{
     private static final double JUMP_TO_BODY_SIZE_RATIO = 4.00;
     private static final boolean WARM_BLOODED = true;
     private static final boolean IS_MAKING_NOISE = true;
+    private static final FoodType FOOD_TYPE =FoodType.MEAT_FEEDING;
+    private static final SkinType SKIN_TYPE = SkinType.FUR;
 
     private Random generator = new Random();
 
@@ -26,9 +28,8 @@ public class LionFactory implements FelidFactory{
     public Lion createRandomLion(){
         Earth earth = Earth.getInstance();
 
-        return new Lion(getNextName(),getNextLifetimeInSeconds(),getNextGeolocationPosition(),earth,
-                FoodType.MEAT_FEEDING,SkinType.FUR,IS_MAKING_NOISE,getNextWeightInGrams(),getNextAge(),
-                getNextSize(),WARM_BLOODED,JUMP_TO_BODY_SIZE_RATIO);
+        return new Lion(getNextName(),getNextLifetimeInSeconds(),getNextGeolocationPosition(),earth,getNextWeightInGrams()
+                ,getNextLifetimeInSeconds(),getNextWidth(),getNextHigh(),JUMP_TO_BODY_SIZE_RATIO,WARM_BLOODED,FOOD_TYPE,SKIN_TYPE,true);
     }
 
     private String getNextName() {
@@ -37,6 +38,14 @@ public class LionFactory implements FelidFactory{
         counter++;
         return result;
     }
+    private double getNextHigh() {
+        return generator.nextDouble(100, 500);
+    }
+
+    private double getNextWidth() {
+        return generator.nextDouble(100, 500);
+    }
+
 
     private double getNextSize() {
         return generator.nextDouble(1000, 5000);
