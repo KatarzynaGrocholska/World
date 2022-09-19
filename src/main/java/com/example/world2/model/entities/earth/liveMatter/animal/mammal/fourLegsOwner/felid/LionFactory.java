@@ -29,7 +29,8 @@ public class LionFactory implements FelidFactory{
         Earth earth = Earth.getInstance();
 
         return new Lion(getNextName(),getNextLifetimeInSeconds(),getNextGeolocationPosition(),earth,getNextWeightInGrams()
-                ,getNextLifetimeInSeconds(),getNextWidth(),getNextHigh(),JUMP_TO_BODY_SIZE_RATIO,WARM_BLOODED,FOOD_TYPE,SKIN_TYPE,true);
+                ,getNextLifetimeInSeconds(),getNextWidth(),getNextHigh(),JUMP_TO_BODY_SIZE_RATIO,WARM_BLOODED,FOOD_TYPE,SKIN_TYPE,
+                90,true);
     }
 
     private String getNextName() {

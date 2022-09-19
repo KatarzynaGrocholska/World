@@ -28,7 +28,7 @@ public class CatFactory implements FelidFactory {
 
         return new Cat(getNextName(), getNextLifetimeInSeconds(), getNextGeolocationPosition(),
                 earth,getNextWeightInGrams(), getNextAge(), getNextWidth(),getNextHigh(), JUMP_TO_BODY_SIZE_RATIO, WARM_BLOODED,
-                getNextFoodType(),getNextSkinType(),IS_MAKING_NOISE );
+                getNextFoodType(),getNextSkinType(),60,IS_MAKING_NOISE );
 
     }
 

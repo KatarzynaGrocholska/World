@@ -27,14 +27,14 @@ public class MouseFactory implements RodentFactory {
         Earth earth = Earth.getInstance();
         return new Mouse(getNextName(), MAX_LIFETIME_IN_SECONDS, getNextGeolocationPosition(), earth, getNextWeightInGrams(),
                 getNextAge(), getNextWidth(), getNextHigh(), JUMP_TO_BODY_SIZE_RATIO, WARM_BLOODED,
-                FoodType.ALL_FEEDING, SkinType.FUR, IS_MAKING_NOISE);
+                FoodType.ALL_FEEDING, SkinType.FUR,30, IS_MAKING_NOISE);
     }
     public Mouse createRandomMouseOnPosition(int x,int y,int z) {
         GeolocationPosition geolocationPosition = new GeolocationPosition(x,y,z);
         Earth earth = Earth.getInstance();
         return new Mouse(getNextName(), MAX_LIFETIME_IN_SECONDS, geolocationPosition, earth, getNextWeightInGrams(),
                 getNextAge(), getNextWidth(), getNextHigh(), JUMP_TO_BODY_SIZE_RATIO, WARM_BLOODED,
-                FoodType.ALL_FEEDING, SkinType.FUR, IS_MAKING_NOISE);
+                FoodType.ALL_FEEDING, SkinType.FUR,30, IS_MAKING_NOISE);
     }
 
     private String getNextName() {

@@ -10,10 +10,10 @@ import com.example.world2.model.interfaces.Walkable;
 
 public abstract class Mammal extends Animal {
 
-
-    public Mammal(String name, double lifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, double weightInGrams, double ageInSeconds,
-                  double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio, boolean warmBlooded,
-                  FoodType foodType, SkinType skinType, boolean isMakingNoise) {
-        super(name, lifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio, warmBlooded, foodType, skinType, isMakingNoise);
+    public Mammal(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
+                  double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
+                  double jumpToBodySizeRatio, boolean
+            warmBlooded, FoodType foodType, SkinType skinType, double movement, boolean isMakingNoise) {
+        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio, warmBlooded, foodType, skinType, movement, isMakingNoise);
     }
 }
