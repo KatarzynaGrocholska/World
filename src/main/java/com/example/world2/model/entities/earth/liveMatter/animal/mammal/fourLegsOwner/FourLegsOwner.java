@@ -14,7 +14,7 @@ public abstract class FourLegsOwner extends Mammal implements Walkable, Swimable
     public FourLegsOwner(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
                          double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio,
                          boolean warmBlooded,
-                         FoodType foodType, SkinType skinType, double movement, boolean isMakingNoise) {
+                         FoodType foodType, SkinType skinType, int movement, boolean isMakingNoise) {
         super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters,
                 jumpToBodySizeRatio, warmBlooded, foodType, skinType, movement, isMakingNoise);
     }

@@ -17,12 +17,12 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
     private FoodType foodType;
     private SkinType skinType;
 
-    private double movement;
+    private int movement;
 
     public Animal(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
                   double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
                   double jumpToBodySizeRatio, boolean warmBlooded,
-                  FoodType foodType, SkinType skinType, double movement, boolean isMakingNoise) {
+                  FoodType foodType, SkinType skinType, int movement, boolean isMakingNoise) {
         super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters);
         this.jumpToBodySizeRatio = jumpToBodySizeRatio;
         this.warmBlooded = warmBlooded;
@@ -75,11 +75,11 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
         return jumpToBodySizeRatio;
     }
 
-    public double getMovement() {
+    public int getMovement() {
         return movement;
     }
 
-    public void setMovement(double movement) {
+    public void setMovement(int movement) {
         this.movement = movement;
     }
 
