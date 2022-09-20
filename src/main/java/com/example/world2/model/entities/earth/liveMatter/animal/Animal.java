@@ -8,7 +8,10 @@ import com.example.world2.model.enums.SkinType;
 import com.example.world2.model.enums.TerrainType;
 import com.example.world2.model.interfaces.Moveable;
 import com.example.world2.model.interfaces.Stayable;
+import lombok.*;
 
+@Setter
+@Getter
 public abstract class Animal extends LiveMatter implements Moveable, Stayable {
 
 
@@ -16,20 +19,15 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
     private boolean warmBlooded;
     private FoodType foodType;
     private SkinType skinType;
-
+    private GeolocationPosition movementTarget;
     private int movement;
 
     public Animal(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
                   double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
-                  double jumpToBodySizeRatio, boolean warmBlooded,
-                  FoodType foodType, SkinType skinType, int movement, boolean isMakingNoise) {
-        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters);
-        this.jumpToBodySizeRatio = jumpToBodySizeRatio;
-        this.warmBlooded = warmBlooded;
-        this.foodType = foodType;
-        this.skinType = skinType;
-        this.movement = movement;
-        this.isMakingNoise = isMakingNoise;
+                  double jumpToBodySizeRatio) {
+        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters,
+                heightInMillimeters);
+        this.jumpToBodySizeRatio=jumpToBodySizeRatio;
     }
 
     public boolean isMakingNoise() {

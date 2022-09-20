@@ -2,7 +2,9 @@ package com.example.world2.model.entities.earth.liveMatter;
 
 import com.example.world2.model.entities.earth.Earth;
 import com.example.world2.model.entities.earth.GeolocationPosition;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public abstract class LiveMatter {
 
     private String name;

@@ -7,11 +7,9 @@ import com.example.world2.model.enums.SkinType;
 
 public class Cat extends Felid {
 
-    public Cat(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, double weightInGrams,
-               double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio, boolean warmBlooded,
-               FoodType foodType, SkinType skinType, int movement, boolean isMakingNoise) {
-        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters,
-                heightInMillimeters, jumpToBodySizeRatio, warmBlooded, foodType, skinType, movement, isMakingNoise);
+
+    public Cat(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio) {
+        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio);
     }
 
     @Override
@@ -24,4 +22,6 @@ public class Cat extends Felid {
     public GeolocationPosition stay() {
         return null;
     }
+
+
 }
