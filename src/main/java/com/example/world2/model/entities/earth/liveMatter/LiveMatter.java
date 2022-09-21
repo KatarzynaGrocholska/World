@@ -2,6 +2,7 @@ package com.example.world2.model.entities.earth.liveMatter;
 
 import com.example.world2.model.entities.earth.Earth;
 import com.example.world2.model.entities.earth.GeolocationPosition;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor

@@ -24,10 +24,15 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
 
     public Animal(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
                   double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
-                  double jumpToBodySizeRatio) {
+                  double jumpToBodySizeRatio,boolean warmBlooded,FoodType foodType,SkinType skinType,GeolocationPosition movementTarget,int movement) {
         super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters,
                 heightInMillimeters);
         this.jumpToBodySizeRatio=jumpToBodySizeRatio;
+        this.warmBlooded=warmBlooded;
+        this.foodType=foodType;
+        this.skinType=skinType;
+        this.movementTarget=movementTarget;
+        this.movement=movement;
     }
 
     public boolean isMakingNoise() {
@@ -80,6 +85,9 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
     public void setMovement(int movement) {
         this.movement = movement;
     }
+
+    public void setMovementTarget(GeolocationPosition movementTarget){this.movementTarget=movementTarget;}
+    public GeolocationPosition getMovementTarget(){return movementTarget;}
 
     protected abstract boolean checkIfWalk(GeolocationPosition newGeolocationPosition);
 
