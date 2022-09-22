@@ -1,10 +1,8 @@
 package com.example.world2.model;
 
-import com.example.world2.model.entities.earth.Earth;
+import com.example.world2.data.CatData;
 import com.example.world2.model.entities.earth.GeolocationPosition;
 import com.example.world2.model.entities.earth.liveMatter.animal.mammal.fourLegsOwner.felid.Cat;
-import com.example.world2.model.enums.FoodType;
-import com.example.world2.model.enums.SkinType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -14,11 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 public class FelidTest {
 
-    GeolocationPosition geolocationPositionA = new GeolocationPosition(1, 0, 1);
-    Earth earth = null;
-    Cat cat = new  Cat("Filemon", 473000000, geolocationPositionA,
-            earth,5000, 365, 5000,2500, 7, true,
-            FoodType.ALL_FEEDING,SkinType.FUR,60,true );
+    Cat cat = CatData.getFirstCat();
+
 
     @Test
     void checkIfWalk_ShouldReturnTrue_WhenZIsConstant() {
@@ -30,6 +25,7 @@ public class FelidTest {
         //then
         assertThat(result).isEqualTo(expected);
     }
+
     @Test
     void checkIfWalk_ShouldReturnFalse_WhenZIsNotConstant() {
         //given
@@ -40,8 +36,9 @@ public class FelidTest {
         //then
         assertThat(result).isEqualTo(expected);
     }
+
     @Test
-    void checkIfJump_ShouldReturnFalse_WhenZIsTooBig(){
+    void checkIfJump_ShouldReturnFalse_WhenZIsTooBig() {
         //given
         GeolocationPosition geolocationPositionB = new GeolocationPosition(1, 0, 36000);
         boolean expected = false;
@@ -52,7 +49,7 @@ public class FelidTest {
     }
 
     @Test
-    void checkIfJump_ShouldReturnTrue_WhenZIsOk(){
+    void checkIfJump_ShouldReturnTrue_WhenZIsOk() {
         //given
         GeolocationPosition geolocationPositionB = new GeolocationPosition(1, 0, 2);
         boolean expected = true;
@@ -63,31 +60,31 @@ public class FelidTest {
     }
 
     @Test
-    void walk_ShouldReturnNewGeolocationPosition_WhenAnimalIsGiven(){
+    void walk_ShouldReturnNewGeolocationPosition_WhenAnimalIsGiven() {
         //given
         GeolocationPosition expected = new GeolocationPosition(61, 0, 3);
         //when
-        GeolocationPosition result =cat.walk();
+        GeolocationPosition result = cat.walk();
         //then
         assertThat(result.getX()).isEqualTo(expected.getX());
     }
 
     @Test
-    void walk_ShouldReturnTooSmallXInGeolocationPosition_WhenAnimalIsGiven(){
+    void walk_ShouldReturnTooSmallXInGeolocationPosition_WhenAnimalIsGiven() {
         //given
         GeolocationPosition expected = new GeolocationPosition(10, 0, 3);
         //when
-        GeolocationPosition result =cat.walk();
+        GeolocationPosition result = cat.walk();
         //then
         assertThat(result).isNotEqualTo(expected);
     }
 
     @Test
-    void walk_ShouldReturnTooBigXInGeolocationPosition_WhenAnimalIsGiven(){
+    void walk_ShouldReturnTooBigXInGeolocationPosition_WhenAnimalIsGiven() {
         //given
         GeolocationPosition expected = new GeolocationPosition(105, 0, 3);
         //when
-        GeolocationPosition result =cat.walk();
+        GeolocationPosition result = cat.walk();
         //then
         assertThat(result).isNotEqualTo(expected);
     }
