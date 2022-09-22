@@ -28,7 +28,7 @@ public abstract class LandBasedMammal extends Mammal implements Walkable, Swimab
     }
 
     private boolean checkIfFieldIsOnTheMap(GeolocationPosition geolocationPosition, GeolocationPosition movementTarget){
-
+    return true;
 
     }
 }
