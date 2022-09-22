@@ -11,7 +11,7 @@ public class CatData {
 
 
     public static Cat getFirstCat(){
-        Earth earth = null;
+        Earth earth = Earth.getInstance();
         GeolocationPosition geolocationPositionA = new GeolocationPosition(1, 0, 1);
         GeolocationPosition geolocationPositionB = new GeolocationPosition(100, 100, 1);
         return new Cat("Filemon",473000000,geolocationPositionA, earth,5000,

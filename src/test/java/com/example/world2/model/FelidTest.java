@@ -17,6 +17,7 @@ public class FelidTest {
 
     @Test
     void checkIfWalk_ShouldReturnTrue_WhenZIsConstant() {
+         cat = CatData.getFirstCat();
         //given
         GeolocationPosition geolocationPositionB = new GeolocationPosition(1, 0, 1);
         boolean expected = true;

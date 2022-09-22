@@ -13,9 +13,12 @@ public class Earth extends Planet {
     }
 
 
-    static Earth earth = new Earth("Earth", 6378, 150480000, 8760, 24, EarthField.getEarthField());
+    private static Earth earth;
 
     public static Earth getInstance() {
+        if(earth == null){
+            earth = new Earth("Earth", 6378, 150480000, 8760, 24, EarthField.getEarthField());
+        }
         return earth;
     }
 }
