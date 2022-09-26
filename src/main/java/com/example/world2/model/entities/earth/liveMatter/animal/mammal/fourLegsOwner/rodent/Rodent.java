@@ -8,8 +8,10 @@ import com.example.world2.model.enums.SkinType;
 
 public abstract class Rodent extends FourLegsOwner {
 
-    public Rodent(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio, boolean warmBlooded, FoodType foodType, SkinType skinType, GeolocationPosition movementTarget, int movement) {
-        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio, warmBlooded, foodType, skinType, movementTarget, movement);
+    public Rodent(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
+                  double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
+                  double jumpToBodySizeRatio,  FoodType foodType, SkinType skinType, GeolocationPosition movementTarget, int movement) {
+        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio, foodType, skinType, movementTarget, movement);
     }
 
     @Override

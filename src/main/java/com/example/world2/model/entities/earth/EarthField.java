@@ -5,8 +5,8 @@ import com.example.world2.model.enums.TerrainType;
 
 public class EarthField {
 
-    private static final int MAX_VALUE_XY = 100;
-    private static final int MAX_VALUE_Z = 50;
+    public static final int MAX_VALUE_XY = 200;
+    public static final int MAX_VALUE_Z = 50;
 
     public static Field[][][] getEarthField() {
         Field[][][] map = new Field[MAX_VALUE_XY][MAX_VALUE_XY][MAX_VALUE_Z];
@@ -35,6 +35,12 @@ public class EarthField {
             }
         }
         return map;
+    }
+    public int getMaxValueXY(){
+        return MAX_VALUE_XY;
+    }
+    public int getMaxValueZ(){
+        return MAX_VALUE_Z;
     }
 
 }

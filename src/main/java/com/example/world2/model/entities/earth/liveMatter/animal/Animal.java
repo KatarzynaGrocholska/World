@@ -6,17 +6,17 @@ import com.example.world2.model.entities.earth.liveMatter.LiveMatter;
 import com.example.world2.model.enums.FoodType;
 import com.example.world2.model.enums.SkinType;
 import com.example.world2.model.enums.TerrainType;
-import com.example.world2.model.interfaces.Moveable;
-import com.example.world2.model.interfaces.Stayable;
+import com.example.world2.model.interfaces.Noisable;
+import com.example.world2.model.interfaces.move.Moveable;
+import com.example.world2.model.interfaces.move.Stayable;
 import lombok.*;
 
 @Setter
 @Getter
-public abstract class Animal extends LiveMatter implements Moveable, Stayable {
+public abstract class Animal extends LiveMatter implements Moveable, Stayable, Noisable {
 
 
     private final double jumpToBodySizeRatio;
-    private boolean warmBlooded;
     private FoodType foodType;
     private SkinType skinType;
     private GeolocationPosition movementTarget;
@@ -24,11 +24,10 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
 
     public Animal(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
                   double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
-                  double jumpToBodySizeRatio,boolean warmBlooded,FoodType foodType,SkinType skinType,GeolocationPosition movementTarget,int movement) {
+                  double jumpToBodySizeRatio,FoodType foodType,SkinType skinType,GeolocationPosition movementTarget,int movement) {
         super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters,
                 heightInMillimeters);
         this.jumpToBodySizeRatio=jumpToBodySizeRatio;
-        this.warmBlooded=warmBlooded;
         this.foodType=foodType;
         this.skinType=skinType;
         this.movementTarget=movementTarget;
@@ -44,14 +43,6 @@ public abstract class Animal extends LiveMatter implements Moveable, Stayable {
     }
 
     private boolean isMakingNoise;
-
-    public boolean isWarmBlooded() {
-        return warmBlooded;
-    }
-
-    public void setWarmBlooded(boolean warmBlooded) {
-        this.warmBlooded = warmBlooded;
-    }
 
     public FoodType getFoodType() {
         return foodType;

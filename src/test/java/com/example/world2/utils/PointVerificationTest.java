@@ -19,7 +19,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnTrue_WhenFieldAreCorrect() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(0, 999999, 4999);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(0, 99, 49);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = true;
@@ -32,7 +32,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnFalse_WhenFieldXValueIsNegative() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(-100, 100, 100);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(-10, 10, 10);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = false;
@@ -45,7 +45,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnFalse_WhenFieldXValueIsTooLarge() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(1000000, 100, 100);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(200, 10, 10);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = false;
@@ -58,7 +58,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnFalse_WhenFieldZValueIsTooLarge() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(100, 100, 5000);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(10, 10, 50);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = false;
@@ -70,7 +70,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnFalse_WhenFieldZValueIsNegative() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(100, 100, -2);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(10, 10, -2);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = false;
@@ -82,7 +82,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnFalse_WhenFieldYValueIsTooLarge() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(100, 1000000, 0);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(10, 200, 0);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = false;
@@ -94,7 +94,7 @@ public class PointVerificationTest {
     @Test
     void pointVerification_ShouldReturnFalse_WhenFieldYValueIsNegative() {
         //given
-        GeolocationPosition geolocationPosition = new GeolocationPosition(100, -100, 100);
+        GeolocationPosition geolocationPosition = new GeolocationPosition(10, -10, 10);
         Cat cat = CatData.getFirstCat();
         cat.setMovementTarget(geolocationPosition);
         boolean expected = false;

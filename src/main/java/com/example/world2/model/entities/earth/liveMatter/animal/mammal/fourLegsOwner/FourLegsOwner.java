@@ -11,7 +11,10 @@ public abstract class
 FourLegsOwner extends LandBasedMammal {
 
 
-    public FourLegsOwner(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth, double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters, double jumpToBodySizeRatio, boolean warmBlooded, FoodType foodType, SkinType skinType, GeolocationPosition movementTarget, int movement) {
-        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters, heightInMillimeters, jumpToBodySizeRatio, warmBlooded, foodType, skinType, movementTarget, movement);
+    public FourLegsOwner(String name, double maxLifetimeInSeconds, GeolocationPosition currentPosition, Earth earth,
+                         double weightInGrams, double ageInSeconds, double widthInMillimeters, double heightInMillimeters,
+                         double jumpToBodySizeRatio,FoodType foodType, SkinType skinType, GeolocationPosition movementTarget, int movement) {
+        super(name, maxLifetimeInSeconds, currentPosition, earth, weightInGrams, ageInSeconds, widthInMillimeters,
+                heightInMillimeters, jumpToBodySizeRatio, foodType, skinType, movementTarget, movement);
     }
 }
