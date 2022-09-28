@@ -1,5 +1,7 @@
 package com.example.world2.model.entities.earth;
 
+import java.util.Objects;
+
 public class GeolocationPosition {
 
     private int x;
@@ -34,5 +36,18 @@ public class GeolocationPosition {
 
     public void setZ(int z) {
         this.z = z;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GeolocationPosition)) return false;
+        GeolocationPosition that = (GeolocationPosition) o;
+        return getX() == that.getX() && getY() == that.getY() && getZ() == that.getZ();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getX(), getY(), getZ());
     }
 }

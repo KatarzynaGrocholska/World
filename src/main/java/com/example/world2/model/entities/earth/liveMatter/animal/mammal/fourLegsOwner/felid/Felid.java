@@ -65,32 +65,55 @@ public abstract class Felid extends FourLegsOwner implements Climbable {
         }
     }
 
+    public GeolocationPosition makeStep() {
+        int temporaryX = 0;
+        int temporaryY = 0;
+        GeolocationPosition result = getCurrentPosition();
+
+        if (result.getX() - getMovementTarget().getX() != 0) {
+            temporaryX = result.getX() - getMovementTarget().getX() > 0 ? -getMovementTargetDistanceX() : getMovementTargetDistanceX();
+        } else if (result.getY() - getMovementTarget().getY() != 0) {
+            temporaryY = result.getY() - getMovementTarget().getY() > 0 ? -getMovementTargetDistanceY() : getMovementTargetDistanceY();
+        }
+        result.setX(result.getX() + temporaryX);
+        result.setY(result.getY() + temporaryY);
+
+        return result;
+    }
+
+    private boolean checkIfTargetIsReached() {
+
+        return this.getCurrentPosition().equals(this.getMovementTarget());
+    }
+
     public GeolocationPosition walk() {
 
-        GeolocationPosition result = getCurrentPosition();
-        if (this.getCurrentPosition().getX() - this.getMovementTarget().getX() > 0) {
-            result.setX(getCurrentPosition().getX() - 1);
-        } else if (this.getCurrentPosition().getX() - this.getMovementTarget().getX() < 0) {
-            result.setX(getCurrentPosition().getX() + 1);
-        } else if (this.getCurrentPosition().getX() - this.getMovementTarget().getX() == 0) {
-            if (this.getCurrentPosition().getY() - this.getMovementTarget().getY() > 0) {
-                result.setY(getCurrentPosition().getY() - 1);
-            } else if (this.getCurrentPosition().getY() - this.getMovementTarget().getY() < 0) {
-                result.setY(getCurrentPosition().getY() + 1);
-            }
+        while (!checkIfTargetIsReached()) {//todo: mechanizm przerywający pętle
+            GeolocationPosition geolocationPosition = makeStep();
+            this.setCurrentPosition(geolocationPosition);
+        }
+        return this.getCurrentPosition();
+    }
 
+    public int getMovementTargetDistanceX() {
+        int result;
+        if (Math.abs(getMovementTarget().getX() - getCurrentPosition().getX()) < getMovement()) {
+            result = getMovementTarget().getX() - getCurrentPosition().getX();
+        }else {
+            result = getMovement();
         }
         return result;
     }
-        private boolean checkIfTargetIsReached(){
-            return this.getCurrentPosition().equals(this.getMovementTarget());
+
+    public int getMovementTargetDistanceY() {
+        int result;
+        if (Math.abs(getMovementTarget().getY() - getCurrentPosition().getY()) < getMovement()) {
+            result = getMovementTarget().getY() - getCurrentPosition().getY();
+        }else {
+            result = getMovement();
         }
-
-        private GeolocationPosition makeStep () {
-           return this.getCurrentPosition();
-
-        }
-
+        return result;
+    }
 
         @Override
         public boolean checkIfWalk (GeolocationPosition newGeolocationPosition){

@@ -17,7 +17,7 @@ public class FelidTest {
 
     @Test
     void checkIfWalk_ShouldReturnTrue_WhenZIsConstant() {
-         cat = CatData.getFirstCat();
+        cat = CatData.getFirstCat();
         //given
         GeolocationPosition geolocationPositionB = new GeolocationPosition(1, 0, 1);
         boolean expected = true;
@@ -88,6 +88,20 @@ public class FelidTest {
         GeolocationPosition result = cat.walk();
         //then
         assertThat(result).isNotEqualTo(expected);
+    }
+
+    @Test
+    void makeStep_ShouldReturnNewGeologicalPosition_WhenStepIsMade() {
+        //given
+        GeolocationPosition expected = new GeolocationPosition(2, 0, 1);
+        GeolocationPosition movementTarget = new GeolocationPosition(10, 0, 1);
+        cat.setMovementTarget(movementTarget);
+        //when
+        GeolocationPosition result = cat.makeStep();
+
+        //then
+        assertThat(result).isEqualTo(expected);
+
     }
 
 }
